@@ -1,5 +1,8 @@
+require('dotenv').config()
+
 const { Server } = require("socket.io");
 const http = require('http').createServer();
+const port = process.env.PORT || 5000
 
 const io = new Server(http , {
     cors: {
@@ -21,6 +24,6 @@ io.on("connection", (socket) => {
 });
 
 // Start the server
-http.listen(5000, () => {
-  console.log('listening on *:5000');
+http.listen(port, () => {
+  console.log('listening on *:' , port);
 });
